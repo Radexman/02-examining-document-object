@@ -2,17 +2,20 @@
 
 // Clean & Performant
 
-function createNewLi(item) {
+const itemsList = document.querySelector('#item-list');
+
+const createItemTwo = (item) => {
 	const li = document.createElement('li');
 	const liText = document.createTextNode(item);
-	li.appendChild(liText);
 
 	const button = createButton('remove-item btn-link text-red');
 
-	document.querySelector('.items').appendChild(li);
-}
+	li.appendChild(liText);
+	li.appendChild(button);
+	itemsList.appendChild(li);
+};
 
-function createButton(classes) {
+const createButton = (classes) => {
 	const button = document.createElement('button');
 	button.className = classes;
 
@@ -20,14 +23,13 @@ function createButton(classes) {
 	button.appendChild(icon);
 
 	return button;
-}
+};
 
-function createIcon(classes) {
+const createIcon = (classes) => {
 	const icon = document.createElement('i');
 	icon.className = classes;
 	return icon;
-}
+};
 
-createNewLi('Bread');
-createNewLi('Eggs');
-createNewLi('Pizza');
+createItemTwo('Eggs');
+createItemTwo('Orange juice');
